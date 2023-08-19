@@ -5,7 +5,7 @@ function addToCart(data) {
     const itemPriceText = data.childNodes[3].childNodes[5].innerText.split(' ');
     const itemPrice = textToFloat(itemPriceText);
     addItemInCart(itemName);
-    calculateSubTotalPrice(itemPrice);
+    calculateTotalPrice(itemPrice);
 }
 
 function addItemInCart(name) {
@@ -23,10 +23,21 @@ function addItemInCart(name) {
     //Append P Element in the Shopping Cart
     shoppingCartAllProducts.appendChild(createPtag);
 }
-function calculateSubTotalPrice(newItemPrice) {
+function calculateTotalPrice(newItemPrice) {
     const subTotalElement = getElement('sub-total-price');
-    const oldSubTotlaPrice = textToFloat(subTotalElement.innerText);
-    const newSubTotalPrice = newItemPrice + oldSubTotlaPrice;
+    const oldSubTotalPrice = textToFloat(subTotalElement.innerText);
+    const newSubTotalPrice = newItemPrice + oldSubTotalPrice;
     const twoDigit = newSubTotalPrice.toFixed(2);
     subTotalElement.innerText = twoDigit;
+    /**
+     * Calcula Grand Total Price
+     */
+
+    const grandTotalElement = getElement("grand-total-price");
+    const oldGrandTotalPrice = textToFloat(grandTotalElement);
+    const newGrandTotal = newSubTotalPrice.toFixed(2);
+    grandTotalElement.innerText = newGrandTotal;
+    
+      
+
 }
