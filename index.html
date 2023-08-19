@@ -560,7 +560,14 @@
                   placeholder="Coupon code"
                   class="input input-bordered w-full"
                 />
-                <button class="btn btn-secondary" disabled="true">Apply</button>
+                <button
+                  type="button"
+                  id="discount-btn"
+                  class="btn bg-[#E527B2] text-white"
+                  onclick="discountCalculation(this)"
+                >
+                  Apply
+                </button>
               </label>
             </div>
           </div>
@@ -577,7 +584,7 @@
               </p>
               <p class="text-xl font-medium my-2">
                 <span class="text-black">Discount:</span>
-                <span class="text-gray-600">51.40</span>
+                <span class="text-gray-600" id="discount-amount">00.00</span>
                 <span class="text-gray-600">TK</span>
               </p>
               <p class="text-xl font-medium my-2">
@@ -588,7 +595,7 @@
             </div>
             <hr class="text-gray-400 my-5" />
             <div class="text-center">
-              <button class="btn btn-secondary btn-wide" disabled="true">
+              <button class="btn btn-secondary btn-wide" id="purchase">
                 Make Purchase
               </button>
             </div>
