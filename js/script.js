@@ -63,24 +63,32 @@ function calculateTotalPrice(newItemPrice) {
 function discountCalculation(data) {
     const coupon = "SELL200";
     const couponElement = data.previousElementSibling;
-
+    const errorMsg = getElement('error');
+    const succesMsg = getElement('success');
     const userInputCoupon = couponElement.value;
     const totalElement = getElement('sub-total-price');
     const totalPrice = totalElement.innerText;
     const grandTotalElement = getElement("grand-total-price");
     const discountElement = getElement("discount-amount");
-    if (coupon === userInputCoupon) {
+    if ('' === userInputCoupon) {
+        errorMsg.innerText = 'Field Must not be empty !';
+    }
+    else if (coupon === userInputCoupon) {
         const discountAmount = ((textToFloat(totalPrice) * 20) / 100);
-        discountAmount.toFixed(2);
-        discountElement.innerText = discountAmount;
-        const withDicountGrandTotal = textToFloat(totalPrice) - discountAmount;
-        grandTotalElement.innerText = withDicountGrandTotal;
-    } else {
-        alert("Invalid Coupon Code !!");
+        const twodigitdiscountPrice = discountAmount.toFixed(2);
+        discountElement.innerText = twodigitdiscountPrice;
+        const withDicountGrandTotal = textToFloat(totalPrice) - twodigitdiscountPrice;
+        const twoDigitGrandPrice = withDicountGrandTotal.toFixed(2);
+        grandTotalElement.innerText = twoDigitGrandPrice;
+        succesMsg.innerText = 'Congrates your discount is applied!';
+        errorMsg.innerText = '';
+    }
+    else {
+        errorMsg.innerText = 'Give Me Valid Coupon Code !';
     }
 }
 /**
- * Dicount Button Enabled 
+ * Discount Button Enabled 
  * purchase Button Enabeld Disabled
 */
 const subTotalElement = getElement('sub-total-price');
@@ -98,6 +106,6 @@ if (subTotalPrice2 <= 0) {
     purchaseBtn.removeAttribute('disabled');
 }
 
-document.getElementById("go-home").addEventListener("click",function(){
+document.getElementById("go-home").addEventListener("click", function () {
     window.location.reload();
 });

@@ -45,12 +45,14 @@
           <h5 class="uppercase text-2xl lg:text-3xl font-medium my-7">
             ---Sale Fever---
           </h5>
-          <h1 class="text-3xl lg:text-5xl font-bold my-7">
+          <h1
+            class="text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-bold my-7"
+          >
             Purchase TK 200 or <br />
             above & get
             <span class="text-summer">20% off</span>
           </h1>
-          <h3 class="font-medium text-xl lg:text-2xl my-4">
+          <h3 class="font-medium text-xl lg:text-2xl my-4 md:my-10">
             Use Promo Code<span
               class="rounded-md py-2 px-2 bg-[#E527B2] text-white ml-4"
               >SELL200
@@ -70,7 +72,7 @@
     <!-- Main Content Section Start Here  -->
     <main class="w-full bg-[#F8F8F8]">
       <section
-        class="w-11/12 flex flex-col lg:flex-row justify-between gap-5 mx-auto py-10"
+        class="w-11/12 flex flex-col md:flex-row justify-between gap-5 mx-auto py-10"
       >
         <!-- Content Section -->
         <section class="flex-1">
@@ -78,7 +80,7 @@
           <section class="mt-16">
             <h2 class="text-4xl font-semibold text-black mb-5">Kitchenware</h2>
             <section
-              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
             >
               <!-- Kitchenware First Product  -->
               <div
@@ -235,7 +237,7 @@
           <section class="my-20">
             <h2 class="text-4xl font-semibold text-black mb-5">Sportswear</h2>
             <section
-              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4"
             >
               <!-- Sportswear First Product  -->
               <div
@@ -394,7 +396,7 @@
           <section class="my-20">
             <h2 class="text-4xl font-semibold text-black mb-5">Sportswear</h2>
             <section
-              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4"
             >
               <!-- Furniture First Product  -->
               <div
@@ -549,83 +551,95 @@
             </section>
           </section>
         </section>
-        <aside class="w-full lg:w-[300px] xl:w-[350px] mt-32">
-          <!-- Coupon Code Area  -->
-          <div class="bg-white rounded-md p-3">
-            <h2 class="mb-3 text-2xl font-medium">Have coupon?</h2>
-            <div class="form-control">
-              <label class="input-group">
-                <input
-                  type="text"
-                  placeholder="Coupon code"
-                  class="input input-bordered w-full"
-                />
-                <button
-                  type="button"
-                  id="discount-btn"
-                  class="btn bg-[#E527B2] text-white"
-                  onclick="discountCalculation(this)"
-                >
-                  Apply
-                </button>
-              </label>
-            </div>
-          </div>
-
-          <!-- Shopping Cart Area  -->
-          <div class="bg-white rounded-md p-3 mt-5">
-            <div id="shopping-list"></div>
-            <hr class="text-gray-400" />
-            <div id="price-area" class="my-5">
-              <p class="text-xl font-medium my-2">
-                <span class="text-black">Total Price:</span>
-                <span class="text-gray-600" id="sub-total-price">00.00</span>
-                <span class="text-gray-600">TK</span>
-              </p>
-              <p class="text-xl font-medium my-2">
-                <span class="text-black">Discount:</span>
-                <span class="text-gray-600" id="discount-amount">00.00</span>
-                <span class="text-gray-600">TK</span>
-              </p>
-              <p class="text-xl font-medium my-2">
-                <span class="text-black">Total:</span>
-                <span class="text-gray-600" id="grand-total-price">00.00</span>
-                <span class="text-gray-600">TK</span>
-              </p>
-            </div>
-            <hr class="text-gray-400 my-5" />
-            <div class="text-center">
-              <button
-                class="btn btn-secondary btn-wide"
-                id="purchase"
-                onclick="my_modal_5.showModal()"
-              >
-                Make Purchase
-              </button>
-              <!-- Open the modal using ID.showModal() method -->
-              <dialog
-                id="my_modal_5"
-                class="modal modal-bottom sm:modal-middle"
-              >
-                <form method="dialog" class="modal-box text-center">
-                  <img
-                    src="./images/congo.png"
-                    alt=""
-                    class="mx-auto my-5"
-                    draggable="false"
+        <!-- Aside/ Cart Area Start Here  -->
+        <aside class="w-full md:w-[300px] xl:w-[350px] mt-32">
+          <div class="sticky top-2">
+            <!-- Coupon Code Area  -->
+            <div class="bg-white rounded-md p-3">
+              <h2 class="mb-3 text-2xl font-medium">Have coupon?</h2>
+              <div class="form-control">
+                <label class="input-group">
+                  <input
+                    type="text"
+                    placeholder="Coupon code"
+                    class="input input-bordered w-full"
                   />
-                  <h3 class="font-bold text-5xl">Congratulations</h3>
-                  <p class="py-4 text-xl text-gray-500">
-                    Your Purchase the product
-                  </p>
-                  <div class="text-center">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn btn-secondary btn-md px-10" id="go-home">
-                      Go Home
-                    </button>
-                  </div>
-                </form>
-              </dialog>
+                  <button
+                    type="button"
+                    id="discount-btn"
+                    class="btn bg-[#E527B2] text-white"
+                    onclick="discountCalculation(this)"
+                  >
+                    Apply
+                  </button>
+                </label>
+              </div>
+              <small class="text-red-600" id="error"></small>
+              <small class="text-green-600" id="success"></small>
+            </div>
+
+            <!-- Shopping Cart Area  -->
+            <div class="bg-white rounded-md p-3 mt-5">
+              <div id="shopping-list"></div>
+              <hr class="text-gray-400" />
+              <div id="price-area" class="my-5">
+                <p class="text-xl font-medium my-2">
+                  <span class="text-black">Total Price:</span>
+                  <span class="text-gray-600" id="sub-total-price">00.00</span>
+                  <span class="text-gray-600">TK</span>
+                </p>
+                <p class="text-xl font-medium my-2">
+                  <span class="text-black">Discount:</span>
+                  <span class="text-gray-600" id="discount-amount">00.00</span>
+                  <span class="text-gray-600">TK</span>
+                </p>
+                <p class="text-xl font-medium my-2">
+                  <span class="text-black">Total:</span>
+                  <span class="text-gray-600" id="grand-total-price"
+                    >00.00</span
+                  >
+                  <span class="text-gray-600">TK</span>
+                </p>
+              </div>
+              <hr class="text-gray-400 my-5" />
+              <div class="text-center">
+                <button
+                  class="btn btn-secondary btn-wide"
+                  id="purchase"
+                  onclick="my_modal_5.showModal()"
+                >
+                  Make Purchase
+                </button>
+                <!-- Open the modal using ID.showModal() method -->
+                <dialog
+                  id="my_modal_5"
+                  class="modal modal-bottom sm:modal-middle w-full"
+                >
+                  <form method="dialog" class="modal-box text-center">
+                    <img
+                      src="./images/congo.png"
+                      alt=""
+                      class="mx-auto my-5"
+                      draggable="false"
+                    />
+                    <h3 class="font-bold text-3xl lg:text-5xl">
+                      Congratulations !
+                    </h3>
+                    <p class="py-4 text-xl text-gray-500">
+                      You Purchase the product
+                    </p>
+                    <div class="text-center">
+                      <!-- if there is a button in form, it will close the modal -->
+                      <button
+                        class="btn btn-secondary btn-md px-10"
+                        id="go-home"
+                      >
+                        Go Home
+                      </button>
+                    </div>
+                  </form>
+                </dialog>
+              </div>
             </div>
           </div>
         </aside>
