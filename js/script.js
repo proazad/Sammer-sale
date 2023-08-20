@@ -75,13 +75,13 @@ function discountCalculation(data) {
         succesMsg.innerText='';
     }
     else if (coupon === userInputCoupon) {
-        const discountAmount = ((textToFloat(totalPrice) * 20) / 100);
+        const discountAmount = ((textToFloat(totalPrice) / 20) * 100);
         const twodigitdiscountPrice = discountAmount.toFixed(2);
         discountElement.innerText = twodigitdiscountPrice;
         const withDicountGrandTotal = textToFloat(totalPrice) - twodigitdiscountPrice;
         const twoDigitGrandPrice = withDicountGrandTotal.toFixed(2);
         grandTotalElement.innerText = twoDigitGrandPrice;
-        succesMsg.innerText = 'Congrates your discount is applied!';
+        succesMsg.innerText = 'Congrates your Coupon is applied!';
         errorMsg.innerText = '';
         couponElement.value ='';
     }
