@@ -27,14 +27,24 @@ function addItemInCart(name) {
     //Append P Element in the Shopping Cart
     shoppingCartAllProducts.appendChild(createPtag);
 }
+
 function calculateTotalPrice(newItemPrice) {
+    // Get Sub Total Button 
     const subTotalElement = getElement('sub-total-price');
+
     const oldSubTotalPrice = textToFloat(subTotalElement.innerText);
+
     const newSubTotalPrice = newItemPrice + oldSubTotalPrice;
+
     const twoDigit = newSubTotalPrice.toFixed(2);
+
     subTotalElement.innerText = twoDigit;
+
+
     const grandTotalElement = getElement("grand-total-price");
+
     const oldGrandTotalPrice = textToFloat(grandTotalElement);
+
     const newGrandTotal = newSubTotalPrice.toFixed(2);
     grandTotalElement.innerText = newGrandTotal;
 
@@ -63,32 +73,44 @@ function calculateTotalPrice(newItemPrice) {
 function discountCalculation(data) {
     const coupon = "SELL200";
     const couponElement = data.previousElementSibling;
+
     const errorMsg = getElement('error');
-    const succesMsg = getElement('success');
+    const successMsg = getElement('success');
     const userInputCoupon = couponElement.value;
+
     const totalElement = getElement('sub-total-price');
+
     const totalPrice = totalElement.innerText;
+
     const grandTotalElement = getElement("grand-total-price");
     const discountElement = getElement("discount-amount");
+
     if ('' === userInputCoupon) {
         errorMsg.innerText = 'Field Must not be empty !';
-        succesMsg.innerText='';
+        successMsg.innerText='';
     }
     else if (coupon === userInputCoupon) {
-        const discountAmount = ((textToFloat(totalPrice) / 20) * 100);
+
+        const discountAmount = ((textToFloat(totalPrice) * 20) / 100);
+
         const twodigitdiscountPrice = discountAmount.toFixed(2);
+
         discountElement.innerText = twodigitdiscountPrice;
+
         const withDicountGrandTotal = textToFloat(totalPrice) - twodigitdiscountPrice;
+
         const twoDigitGrandPrice = withDicountGrandTotal.toFixed(2);
+
         grandTotalElement.innerText = twoDigitGrandPrice;
-        succesMsg.innerText = 'Congrates your Coupon is applied!';
+
+        successMsg.innerText = 'Congrates your Coupon is applied!';
         errorMsg.innerText = '';
         couponElement.value ='';
     }
     else {
         errorMsg.innerText = 'Sorry! This coupon code is not valid !';
         couponElement.value ='';
-        succesMsg.innerText='';
+        successMsg.innerText='';
     }
 }
 /**
@@ -98,6 +120,7 @@ function discountCalculation(data) {
 const subTotalElement = getElement('sub-total-price');
 const subTotalPrice2 = parseFloat(subTotalElement.innerText);
 const button = document.querySelector('#discount-btn');
+
 if (subTotalPrice2 < 200) {
     button.setAttribute('disabled', true);
 } else {
