@@ -72,6 +72,7 @@ function discountCalculation(data) {
     const discountElement = getElement("discount-amount");
     if ('' === userInputCoupon) {
         errorMsg.innerText = 'Field Must not be empty !';
+        succesMsg.innerText='';
     }
     else if (coupon === userInputCoupon) {
         const discountAmount = ((textToFloat(totalPrice) * 20) / 100);
@@ -82,9 +83,12 @@ function discountCalculation(data) {
         grandTotalElement.innerText = twoDigitGrandPrice;
         succesMsg.innerText = 'Congrates your discount is applied!';
         errorMsg.innerText = '';
+        couponElement.value ='';
     }
     else {
-        errorMsg.innerText = 'Give Me Valid Coupon Code !';
+        errorMsg.innerText = 'Sorry! This coupon code is not valid !';
+        couponElement.value ='';
+        succesMsg.innerText='';
     }
 }
 /**
