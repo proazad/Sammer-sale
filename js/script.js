@@ -71,7 +71,8 @@ function discountCalculation(data) {
     const discountElement = getElement("discount-amount");
     if (coupon === userInputCoupon) {
         const discountAmount = ((textToFloat(totalPrice) * 20) / 100);
-        discountElement.innerText = "20% OFF  " + discountAmount;
+        discountAmount.toFixed(2);
+        discountElement.innerText = discountAmount;
         const withDicountGrandTotal = textToFloat(totalPrice) - discountAmount;
         grandTotalElement.innerText = withDicountGrandTotal;
     } else {
