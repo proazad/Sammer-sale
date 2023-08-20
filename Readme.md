@@ -2,4 +2,4 @@
 
 ## [ Private Repo Link](https://classroom.github.com/a/uicCJkDQ)
 
-Click here for the private repo: [https://classroom.github.com/a/uicCJkDQ](https://classroom.github.com/a/uicCJkDQ)
+Click here for the Live Site link : https://black-copy.surge.sh/
