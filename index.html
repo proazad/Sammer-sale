@@ -595,9 +595,37 @@
             </div>
             <hr class="text-gray-400 my-5" />
             <div class="text-center">
-              <button class="btn btn-secondary btn-wide" id="purchase">
+              <button
+                class="btn btn-secondary btn-wide"
+                id="purchase"
+                onclick="my_modal_5.showModal()"
+              >
                 Make Purchase
               </button>
+              <!-- Open the modal using ID.showModal() method -->
+              <dialog
+                id="my_modal_5"
+                class="modal modal-bottom sm:modal-middle"
+              >
+                <form method="dialog" class="modal-box text-center">
+                  <img
+                    src="./images/congo.png"
+                    alt=""
+                    class="mx-auto my-5"
+                    draggable="false"
+                  />
+                  <h3 class="font-bold text-5xl">Congratulations</h3>
+                  <p class="py-4 text-xl text-gray-500">
+                    Your Purchase the product
+                  </p>
+                  <div class="text-center">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-secondary btn-md px-10" id="go-home">
+                      Go Home
+                    </button>
+                  </div>
+                </form>
+              </dialog>
             </div>
           </div>
         </aside>

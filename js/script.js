@@ -96,3 +96,7 @@ if (subTotalPrice2 <= 0) {
 } else {
     purchaseBtn.removeAttribute('disabled');
 }
+
+document.getElementById("go-home").addEventListener("click",function(){
+    window.location.reload();
+});
