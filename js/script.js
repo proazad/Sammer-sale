@@ -68,8 +68,7 @@ function calculateTotalPrice(newItemPrice) {
 
 }
 
-
-
+let isAppliedCoupon = false;
 function discountCalculation(data) {
     const coupon = "SELL200";
     const couponElement = data.previousElementSibling;
@@ -87,9 +86,13 @@ function discountCalculation(data) {
 
     if ('' === userInputCoupon) {
         errorMsg.innerText = 'Field Must not be empty !';
-        successMsg.innerText='';
+        successMsg.innerText = '';
+    } else if (isAppliedCoupon) {
+        successMsg.innerText = '';
+        errorMsg.innerText = 'Sorry! Your Coupon is already applied!';
+        couponElement.value = '';
     }
-    else if (coupon === userInputCoupon) {
+    else if (coupon === userInputCoupon && !isAppliedCoupon) {
 
         const discountAmount = ((textToFloat(totalPrice) * 20) / 100);
 
@@ -105,12 +108,13 @@ function discountCalculation(data) {
 
         successMsg.innerText = 'Congrates your Coupon is applied!';
         errorMsg.innerText = '';
-        couponElement.value ='';
+        couponElement.value = '';
+        isAppliedCoupon = true;
     }
     else {
         errorMsg.innerText = 'Sorry! This coupon code is not valid !';
-        couponElement.value ='';
-        successMsg.innerText='';
+        couponElement.value = '';
+        successMsg.innerText = '';
     }
 }
 /**
