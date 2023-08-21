@@ -47,23 +47,17 @@ function calculateTotalPrice(newItemPrice) {
 
     const newGrandTotal = newSubTotalPrice.toFixed(2);
     grandTotalElement.innerText = newGrandTotal;
-
     /**
  * Dicount Button Enabled 
  * purchase Button Enabeld Disabled
 */
-    const button = document.querySelector('#discount-btn');
-    if (newSubTotalPrice < 200) {
-        button.setAttribute('disabled', true);
-    } else {
-        button.removeAttribute('disabled');
-    }
-
+    const discountButton = document.querySelector('#discount-btn');
     const purchaseBtn = document.querySelector('#purchase');
-    if (newSubTotalPrice <= 0) {
-        purchaseBtn.setAttribute('disabled', true);
-    } else {
+    if (newSubTotalPrice > 0 ) {
         purchaseBtn.removeAttribute('disabled');
+    }
+    if(newSubTotalPrice>200){
+        discountButton.removeAttribute('disabled');
     }
 
 }
@@ -125,15 +119,11 @@ const subTotalElement = getElement('sub-total-price');
 const subTotalPrice2 = parseFloat(subTotalElement.innerText);
 const button = document.querySelector('#discount-btn');
 
-if (subTotalPrice2 < 200) {
-    button.setAttribute('disabled', true);
-} else {
+if (subTotalPrice2 > 200) {
     button.removeAttribute('disabled');
 }
 const purchaseBtn = document.querySelector('#purchase');
-if (subTotalPrice2 <= 0) {
-    purchaseBtn.setAttribute('disabled', true);
-} else {
+if (subTotalPrice2 > 0) {
     purchaseBtn.removeAttribute('disabled');
 }
 
